@@ -19,7 +19,8 @@ class CreateNewUser implements CreatesNewUsers
      *
      * @param  array<string, string>  $input
      */
-    public function create(array $input): User {
+    public function create(array $input): User
+    {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255', 'nullable'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -41,7 +42,8 @@ class CreateNewUser implements CreatesNewUsers
     /**
      * Create a personal team for the user.
      */
-    protected function createTeam(User $user): void {
+    protected function createTeam(User $user): void
+    {
         $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $user->id,
             'name' => explode(' ', $user->name, 2)[0]."'s Team",
