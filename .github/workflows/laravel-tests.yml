@@ -1,7 +1,7 @@
 name: Run Laravel tests
 
 on:
-  pull_requests
+  pull_request
 
 jobs:
   run-tests:
